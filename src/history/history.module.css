@@ -1,9 +1,21 @@
 .history {
-    width: 100%;
-    margin: auto;
-    height: 250px;
+    margin: 10%;
+    height: 70%;
     overflow: hidden;
     text-align: center;
     font-weight: bold;
     font-size: 1.2rem;
+}
+
+.filter {
+    display: block;
+    margin: 0 auto;
+    padding: 0.8rem 1.6rem;
+    color: inherit;
+    width: 30%;
+    font-size: 2.1rem;
+    font-weight: inherit;
+    border: 1px solid #ccc;
+    border-radius: 3%;
+    box-shadow: 0 2px 3px #ccc;
   }

@@ -2,65 +2,47 @@ import React, { Component } from "react";
 
 import styles from './history.module.css';
 
+import Product from '../product/product';
+
 class History extends Component {
-  state = {
-    products: [
-      { name: "Ovos", price: 6 },
-      { name: "Leite", price: 3.50 },
-      { name: "Cenoura", unitPrice: 2, quantity: 0.2, price: 0.4 }
-    ],
-    filter: ''
-  };
+    state = {
+        products: [
+            { name: "Ovos", price: 6 },
+            { name: "Leite", price: 3.50 },
+            { name: "Cenoura", unitPrice: 2, quantity: 0.2, price: 0.4 }
+        ],
+        filter: ''
+    };
 
-  filterChangeHandler = (event) => {
-      this.setState({filter: event.target.value});
-  }
-
-  render() {
-    let productsList = null;
-
-    if(this.state.filter) {
-        const filterLower = this.state.filter.toLowerCase();
-        productsList = this.state.products.filter(p => p.name.toLowerCase().includes(filterLower));
-    } else {
-        productsList = this.state.products;
+    filterChangeHandler = (event) => {
+        this.setState({ filter: event.target.value });
     }
 
-    let productsElems = productsList.map(p => {
-      return (
-        <tr key={p.name}>
-          <td>{p.name}</td>
-          <td>{p.unitPrice}</td>
-          <td> R$ {p.price.toFixed(2)}</td>
-        </tr>
-      );
-    });
+    render() {
+        let productsList = null;
 
-    console.log(styles.history);
+        if (this.state.filter) {
+            const filterLower = this.state.filter.toLowerCase();
+            productsList = this.state.products.filter(p => p.name.toLowerCase().includes(filterLower));
+        } else {
+            productsList = this.state.products;
+        }
 
-    return (
-      <div className={styles.history}>
-        <input 
-            type="text" 
-            name="product-name"
-            value={this.state.filter}
-            onChange={this.filterChangeHandler} />
-        <table>
-          <thead>
-            <tr>
-                <th>Name</th>
-                <th>Unit price</th>
-                <th>Price</th>
-            </tr>
-          </thead>
+        let productsElems = productsList.map(p => <Product product={p} />);
 
-          <tbody>
-            {productsElems}
-          </tbody>
-        </table>
-      </div>
-    );
-  }
+        return (
+            <div className={styles.history}>
+                <input
+                    className={styles.filter}
+                    type="text"
+                    name="product-name"
+                    value={this.state.filter}
+                    onChange={this.filterChangeHandler} />
+
+                {productsElems}
+            </div>
+        );
+    }
 }
 
 export default History;

@@ -1,0 +1,28 @@
+.product {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px auto 10px auto;
+    padding: 10px;
+    border: 1px solid #eee;
+    box-shadow: 0 0 1px transparent;
+    width: 30%;
+    border-radius: 1%;
+    background-color: white;
+}
+
+.name {
+    display: block;
+    width: 50%;
+}
+
+.unitPrice {
+    display: block;
+    width: 25%;
+}
+
+.price {
+    display: block;
+    width: 25%;
+    color: green;
+}
