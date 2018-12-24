@@ -16,9 +16,10 @@
     width: 50%;
 }
 
-.unitPrice {
+.unit {
     display: block;
     width: 25%;
+    color: #aaa
 }
 
 .price {

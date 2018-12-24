@@ -3,16 +3,22 @@ import React, { Component } from "react";
 import styles from './history.module.css';
 
 import Product from '../product/product';
+import axios from '../commom/axios-firebase';
 
 class History extends Component {
     state = {
-        products: [
-            { name: "Ovos", price: 6 },
-            { name: "Leite", price: 3.50 },
-            { name: "Cenoura", unitPrice: 2, quantity: 0.2, price: 0.4 }
-        ],
+        products: [],
         filter: ''
     };
+
+    componentDidMount() {
+        axios.get('/products.json')
+            .then(response => {
+                const products = response.data.filter(r => r !== null);
+                this.setState({ products: response.data })
+            })
+            .catch(error => console.log(error));
+    }
 
     filterChangeHandler = (event) => {
         this.setState({ filter: event.target.value });
@@ -28,7 +34,7 @@ class History extends Component {
             productsList = this.state.products;
         }
 
-        let productsElems = productsList.map(p => <Product product={p} />);
+        let productsElems = productsList.map(p => <Product key={p.name} product={p} />);
 
         return (
             <div className={styles.history}>
