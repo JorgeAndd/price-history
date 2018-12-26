@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import styles from './history.module.css';
 
 import Product from '../product/product';
+import RoundButton from '../ui/RoundButton';
 import axios from '../commom/axios-firebase';
 
 class History extends Component {
@@ -14,7 +15,6 @@ class History extends Component {
     componentDidMount() {
         axios.get('/products.json')
             .then(response => {
-                const products = response.data.filter(r => r !== null);
                 this.setState({ products: response.data })
             })
             .catch(error => console.log(error));
@@ -22,6 +22,10 @@ class History extends Component {
 
     filterChangeHandler = (event) => {
         this.setState({ filter: event.target.value });
+    }
+
+    newProductHandler = () => {
+        this.props.history.push('/new-product');
     }
 
     render() {
@@ -46,6 +50,12 @@ class History extends Component {
                     onChange={this.filterChangeHandler} />
 
                 {productsElems}
+
+                <RoundButton 
+                    color='green'
+                    clicked={this.newProductHandler}>
+                    +
+                </RoundButton>
             </div>
         );
     }

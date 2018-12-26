@@ -1,0 +1,22 @@
+.button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px 0 #777;
+    transition: all 0.1s ease-in-out;
+  
+    font-size: 45px;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+  
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+}
+
+.button:hover {
+    box-shadow: 0 3px 6px 0 #777;
+    transform: scale(1.05);
+    cursor: pointer;
+ }
