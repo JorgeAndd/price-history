@@ -53,8 +53,9 @@ class History extends Component {
 
                 <RoundButton 
                     color='green'
-                    clicked={this.newProductHandler}>
-                    +
+                    clicked={this.newProductHandler}
+                    icon='plus'>
+                    <i className='fa fa-plus' />
                 </RoundButton>
             </div>
         );

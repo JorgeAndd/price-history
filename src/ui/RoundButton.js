@@ -8,7 +8,7 @@ const button = (props) => {
     return(
         <div 
             style={{backgroundColor: color}}
-            className = { styles.button }
+            className = {styles.button} 
             onClick = { props.clicked } > {props.children} 
         </div>
     );

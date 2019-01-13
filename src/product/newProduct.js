@@ -50,7 +50,7 @@ class NewProduct extends Component {
                 <RoundButton
                     color='red'
                     clicked={this.cancelHandler}>
-                    x
+                    <i className="fa fa-times" />
                 </RoundButton>
             </div>
         );

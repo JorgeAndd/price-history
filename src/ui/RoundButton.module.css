@@ -1,14 +1,14 @@
 .button {
     width: 60px;
     height: 60px;
-    border-radius: 50%;
+    border-radius: 100%;
     box-shadow: 0 2px 5px 0 #777;
     transition: all 0.1s ease-in-out;
   
-    font-size: 45px;
+    font-size: 35px;
     color: white;
     text-align: center;
-    line-height: 50px;
+    line-height: 60px;
   
     position: fixed;
     right: 50px;
