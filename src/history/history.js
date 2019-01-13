@@ -41,7 +41,7 @@ class History extends Component {
         let productsElems = productsList.map(p => <Product key={p.name} product={p} />);
 
         return (
-            <div className={styles.history}>
+            <div>
                 <input
                     className={styles.filter}
                     type="text"

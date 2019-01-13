@@ -1,15 +1,12 @@
-.row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px auto 10px auto;
-    width: 30%;
-    border-radius: 1%;
-    background-color: white;
+.page {
+    
 }
 
-.label {
-    width: 20%
+.row {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px auto 10px auto;
+    width: 50%;
 }
 
 input {

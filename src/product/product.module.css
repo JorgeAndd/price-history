@@ -1,14 +1,11 @@
 .product {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-around;
     margin: 10px auto 10px auto;
     padding: 10px;
     border: 1px solid #eee;
-    box-shadow: 0 0 1px transparent;
-    width: 30%;
-    border-radius: 1%;
-    background-color: white;
+    box-shadow: 0 1px 1px #eee;
+    border-radius: 2%;
 }
 
 .name {

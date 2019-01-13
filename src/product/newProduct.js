@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 import styles from './newProduct.module.css';
 
 import RoundButton from '../ui/RoundButton';
+import InputGroup from '../ui/InputGroup';
 
 class NewProduct extends Component {
     state = {
@@ -11,17 +14,7 @@ class NewProduct extends Component {
         pricePerKg: 0,
         qtd: 0,
         priceTotal: 0,
-        date: ''
-    }
-    
-    componentDidMount = () => {
-        let mm = this.getMonth() + 1; // getMonth() is zero-based
-        let dd = this.getDate();
-
-  return [this.getFullYear(),
-          (mm>9 ? '' : '0') + mm,
-          (dd>9 ? '' : '0') + dd
-         ].join(''); 
+        date: new Date()
     }
 
     cancelHandler = () => {
@@ -32,32 +25,29 @@ class NewProduct extends Component {
         return (
             <div>
                 <div className={styles.row}>
-                    <p className={styles.label}>Nome</p>
-                    <input type='text' />
+                    <div className={styles.row}>
+                        <InputGroup label='Nome' />
+                    </div>
+
+                    <div className={styles.row}>
+                        <p className={styles.label}>Data</p>
+                        <DatePicker
+                            selected={this.state.date}
+                            dateFormat='dd/MM/yyyy' />
+                    </div>
                 </div>
 
                 <div className={styles.row}>
-                    <p className={styles.label}>Preço</p>
-                    <input type='text' />
-
-                    <p className={styles.label}>Preço/kg</p>
-                    <input type='text' />
-                </div>                
-
-                <div className={styles.row}>
-                    <p className={styles.label}>Quantidade</p>
-                    <input type='text' />
-
-                    <p className={styles.label}>$ Total</p>
-                    <input type='text' disabled/>
+                    <InputGroup label='Preço' />
+                    <InputGroup label='Preço/kg' />
                 </div>
 
                 <div className={styles.row}>
-                    <p className={styles.label}>Data</p>
-                    <input type='date' value={this.state.date} />
+                    <InputGroup label='Quantidade' />
+                    <InputGroup label='$ Total' />
                 </div>
 
-                <RoundButton 
+                <RoundButton
                     color='red'
                     clicked={this.cancelHandler}>
                     x
