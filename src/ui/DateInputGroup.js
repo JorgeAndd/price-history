@@ -1,6 +1,10 @@
 import React from 'react';
 
-const inputGroup = (props) => {
+import DatePicker from 'react-datepicker';
+
+import './DateInputGroup.css';
+
+const dateInputGroup = (props) => {
     const styles = {
         container: {
             width: '100%',
@@ -32,13 +36,15 @@ const inputGroup = (props) => {
     return (
         <div style={styles.container}>
             <span style={styles.label}>{props.label}</span>
-            <input style={styles.input} type={props.type} />
+            <DatePicker
+                selected={props.date}
+                dateFormat='dd/MM/yyyy' />
         </div>
     );
 };
 
-inputGroup.defaultProps = {
-    type: 'text'
+dateInputGroup.defaultProps = {
+    date: new Date()
 }
 
-export default inputGroup;
+export default dateInputGroup;

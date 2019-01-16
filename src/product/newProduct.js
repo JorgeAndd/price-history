@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 import styles from './newProduct.module.css';
 
 import RoundButton from '../ui/RoundButton';
 import InputGroup from '../ui/InputGroup';
+import DateInputGroup from '../ui/DateInputGroup';
 
 class NewProduct extends Component {
     state = {
@@ -27,13 +27,7 @@ class NewProduct extends Component {
                 <div className={styles.row}>
                     <div className={styles.row}>
                         <InputGroup label='Nome' />
-                    </div>
-
-                    <div className={styles.row}>
-                        <p className={styles.label}>Data</p>
-                        <DatePicker
-                            selected={this.state.date}
-                            dateFormat='dd/MM/yyyy' />
+                        <DateInputGroup label='Data' />
                     </div>
                 </div>
 
